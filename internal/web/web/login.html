@@ -122,6 +122,8 @@ function preferredLocale(){
     if(stored==='en'&&localStorage.getItem(localeSelectionKey)==='1')return 'en';
     if(stored&&stored!=='en'&&SUPPORTED_LOCALES.includes(stored))return stored;
   }catch(e){}
+  const configured=window.M365_DEFAULT_LOCALE;
+  if(configured&&SUPPORTED_LOCALES.includes(configured))return configured;
   return 'zh-CN';
 }
 let currentLocale=preferredLocale();
